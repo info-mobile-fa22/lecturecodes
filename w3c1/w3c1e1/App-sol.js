@@ -5,33 +5,30 @@ import React, { useState } from 'react';
 const newMovie = [["Girl Picture","Amy Nicholson", "2022-08-11", "https://www.nytimes.com/2022/08/11/movies/girl-picture-review.html", "https://static01.nyt.com/images/2022/08/12/arts/11girl/11girl-mediumThreeByTwo210.jpg"],["A Little Night Music", "Jesse Green", "2022-08-12","https://www.nytimes.com/2022/08/12/theater/a-little-night-music-great-barrington-stage.html","https://static01.nyt.com/images/2022/08/12/arts/12little-night/12little-night-mediumThreeByTwo210.jpg"]]
 
 function App() {
-  
-  const [showPoster, setShowPoster] = useState(true)  
+
+  const [showPoster, setShowPoster] = useState(true)
 
   return (
     <div className="App">
       <header className="App-header">
         <h4>Movie Reviews - The New York Times</h4>
-        
-        <div class="panel-add">
-          <a  href="#" class="status" id="more-review">More Reviews +</a>
-          <a  href="#" class="status" id="show-poster" onClick = {()=>setShowPoster(!showPoster)}>Show Posters</a>
-        </div>    
-        
-        <MoviePanel
+
+        <ControlPanel showFunction={()=>setShowPoster(!showPoster)}/>
+        <MoviePanel 
           title="13: The Musical" 
-          name="Amy Nicholson" date="2022-08-12" 
+          name="Amy Nicholson" 
+          date="2022-08-12" 
           address="https://www.nytimes.com/2022/08/12/movies/13-the-musical-review.html" 
           source="https://static01.nyt.com/images/2022/08/10/arts/thirteen1/thirteen1-mediumThreeByTwo440.jpg" 
           isShow={showPoster}/>
-        <MoviePanel
+        <MoviePanel 
           title="Day Shift" 
           name="Jeannette Catsoulis" 
           date="2022-08-12" 
           address="https://www.nytimes.com/2022/08/11/movies/day-shift-review.html" 
           source="https://static01.nyt.com/images/2022/08/12/arts/dayshift1/merlin_211046976_063d0b06-20dd-4615-a069-3e1accf3ee12-mediumThreeByTwo440.jpg" 
           isShow={showPoster}/>
-        <MoviePanel
+        <MoviePanel 
           title="Stay on Board: The Leo Baker Story" 
           name="Teo Bugbee" 
           date="2022-08-11" 
@@ -48,6 +45,23 @@ function App() {
       </header>
     </div>
   );
+}
+
+function ControlPanel(props){
+  return(
+    <div class="panel-add">
+      <AButton aId="more-review" aCaption="More Reviews +"/>
+      <AButton aId="show-posters" aCaption="Show Posters" clickFunction={props.showFunction}/>
+
+      {/*<a  href="#" class="status" id="more-review">More Reviews +</a>
+            <a  href="#" class="status" id="show-posters" onClick={()=>setShowPoster(!showPoster)}>Show Posters</a>*/}
+    </div>)
+}
+
+function AButton(props){
+  return(
+      <a  href="#" class="status" id={props.aId} onClick={props.clickFunction}>{props.aCaption}</a>
+    )
 }
 
 function MoviePanel(props){
