@@ -6,12 +6,6 @@ import { StyleSheet, View, Button } from 'react-native';
 
 // Initialize Firebase
 initializeApp({
-  apiKey: "AIzaSyAbbuhmi1qAEI2c4ByQiWmBaXIo3LTXjrY",
-  authDomain: "w11c2-lecture2.firebaseapp.com",
-  projectId: "w11c2-lecture2",
-  storageBucket: "w11c2-lecture2.appspot.com",
-  messagingSenderId: "351349622717",
-  appId: "1:351349622717:web:1ec3be6ff408a5a9bbb4d4"
 });
 
 // WebBrowser.maybeCompleteAuthSession();
@@ -20,7 +14,7 @@ export default function App() {
 
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest(
     {
-      clientId: '351349622717-96idg76bj1njl96s1a25ur9oh101eoao.apps.googleusercontent.com',
+      clientId: '',
     },
   );
 

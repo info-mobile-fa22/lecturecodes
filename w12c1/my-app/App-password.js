@@ -5,12 +5,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithRedirect } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAbbuhmi1qAEI2c4ByQiWmBaXIo3LTXjrY",
-  authDomain: "w11c2-lecture2.firebaseapp.com",
-  projectId: "w11c2-lecture2",
-  storageBucket: "w11c2-lecture2.appspot.com",
-  messagingSenderId: "351349622717",
-  appId: "1:351349622717:web:1ec3be6ff408a5a9bbb4d4"
 };
 
 // Initialize Firebase
